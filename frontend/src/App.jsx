@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import our data from the Javascript file.
 // JSON object representing Spotify streams to August 2023
-import { spotify2023 } from "./spotify2023";
+import { spotify2024 } from "./spotify2024";
 
 // Writing our own functions for use in our app
 // Writing a comment about a specific number.
@@ -49,7 +49,7 @@ function App() {
       <hr />
       <ResultsComponent
         searchTermFromParent={searchTerm}
-        spotifyArrayFromParent={spotify2023}
+        spotifyArrayFromParent={spotify2024}
       />
     </>
   );
@@ -90,14 +90,27 @@ function ResultsComponent(props) {
       {numberResults === 0 && <p>No results</p>}
       {numberResults > 0 && numberResults < 10 && <p>Some results, not many</p>}
       {numberResults > 10 && <p>Lots of results</p>}
-      {props.spotifyArrayFromParent
-        .filter(spotifyFilterFunction(props.searchTermFromParent))
-        .map((a, index) => (
-          <p key={index}>
-            <b>{a.artist}</b>, <i>{a.track}</i> Streams: {a.streams}{" "}
-            {writeNumberAsWords(a.streams)}
-          </p>
-        ))}
+      <table border = "1">
+        <tr>
+          <th>Artist</th>
+          <th>Track</th>
+          <th>Release</th>
+          <th>Streams</th>
+          <th>Note</th>
+        </tr>
+        {props.spotifyArrayFromParent
+          .filter(spotifyFilterFunction(props.searchTermFromParent))
+          .map((s, index) => (
+            <tr key={index}>
+              <td><b>{s.artist}</b></td>
+              <td><i>{s.track}</i></td>
+              <td>{s.release}</td>
+              <td>{s.streams}</td>
+              <td>{writeNumberAsWords(s.streams)}</td>
+            </tr>
+          ))}
+      </table>
+
     </>
   );
 } // end of child component for results.
