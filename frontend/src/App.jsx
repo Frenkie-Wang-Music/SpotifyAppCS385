@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import our data from the Javascript file.
 // JSON object representing Spotify streams to August 2023
 import { spotify2024 } from "./spotify2024";
+import spotifyIcon from "./spotifyIcon.png"
 
 // Writing our own functions for use in our app
 // Writing a comment about a specific number.
@@ -41,6 +42,7 @@ function App() {
   return (
     <>
       <h1>Parent component CS385 Spotify Search</h1>
+      <img src={spotifyIcon} alt="Spotify Logo" />
       <p>Your current search term is [{searchTerm}]</p>
       <form>
         <h3>Type your search here: </h3>
