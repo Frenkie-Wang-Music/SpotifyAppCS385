@@ -13,19 +13,38 @@ Run the project on localhost:
 https://spotify-app-cs-385.vercel.app/
 
 # Clean the data
-1) Create new Table with only 4 Columns
+
+1) Change Column Name
+```sql
+ALTER TABLE origin_data RENAME COLUMN Track TO track;
+ALTER TABLE origin_data RENAME COLUMN Artist TO artist;
+ALTER TABLE origin_data RENAME COLUMN Spotify Streams TO streams;
+FROM origin_data; 
+```
+
+2) Create a new Column for Release Year
+```sql
+ALTER TABLE origin_data ADD COLUMN release INT;
+```
+
+```sql
+UPDATE origin_data
+SET release = YEAR(STR_TO_DATE(`Release Date` , '%d/%m/%Y'));
+```
+
+3) Create new Table with only 4 Columns
 ```sql
 CREATE TABLE spotify_2024 AS
 SELECT track, artist, release, streams
 FROM origin_data; 
 ```
 
-2) Delete old Table
+4) Delete old Table
 ```sql
 DROP TABLE origin_data;
 ```
 
-3) Data cleaning 
+5) Data cleaning 
 ```sql
 DELETE FROM spotify_2024
 WHERE 
@@ -35,4 +54,4 @@ WHERE
  OR TRIM(streams) = '' OR streams LIKE '%???%';
    ```
 
-4) Export new Excel and convert into JSON 
+6) Export new Excel and convert into JSON 
