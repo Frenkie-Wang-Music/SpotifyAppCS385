@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <h1>Parent component CS385 Spotify Search</h1>
+      <h1>Parent component - CS385 Spotify Search</h1>
       <img src={spotifyIcon} alt="Spotify Logo" />
       <p>Your current search term is [{searchTerm}]</p>
       <form>
@@ -87,7 +87,7 @@ function ResultsComponent(props) {
 
   return (
     <>
-      <h1>Child Component: Search Results</h1>
+      <h1>Child Component - Search Results</h1>
       <h2>There are {numberResults} search results </h2>
       {numberResults === 0 && <p>No results</p>}
       {numberResults > 0 && numberResults < 10 && <p>Some results, not many</p>}
