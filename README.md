@@ -18,7 +18,7 @@ https://spotify-app-cs-385.vercel.app/
 ```sql
 ALTER TABLE origin_data RENAME COLUMN Track TO track;
 ALTER TABLE origin_data RENAME COLUMN Artist TO artist;
-ALTER TABLE origin_data RENAME COLUMN Spotify Streams TO streams;
+ALTER TABLE origin_data RENAME COLUMN `Spotify Streams` TO streams;
 FROM origin_data; 
 ```
 
