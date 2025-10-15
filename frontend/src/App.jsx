@@ -69,12 +69,13 @@ function ResultsComponent(props) {
   function spotifyFilterFunction(searchTerm) {
     return function (spotifyObject) {
       // convert everything to lower case for string matching
-      let artist = spotifyObject.artist.toLowerCase();
-      let track = spotifyObject.track.toLowerCase();
+      let artistLowerCase = spotifyObject.artist.toLowerCase();
+      let trackLowerCase = spotifyObject.track.toLowerCase();
+      let searchTermLowerCase = searchTerm.toLowerCase();
       return (
         searchTerm !== "" &&
-        (track.includes(searchTerm.toLowerCase()) ||
-          artist.includes(searchTerm.toLowerCase()))
+        (trackLowerCase.includes(searchTermLowerCase) ||
+          artistLowerCase.includes(searchTermLowerCase))
       );
     };
   }
