@@ -94,24 +94,28 @@ function ResultsComponent(props) {
       {numberResults > 0 && numberResults < 10 && <p>Some results, not many</p>}
       {numberResults > 10 && <p>Lots of results</p>}
       <table border = "1">
-        <tr>
-          <th>Artist</th>
-          <th>Track</th>
-          <th>Release</th>
-          <th>Streams</th>
-          <th>Note</th>
-        </tr>
-        {props.spotifyArrayFromParent
-          .filter(spotifyFilterFunction(props.searchTermFromParent))
-          .map((s, index) => (
-            <tr key={index}>
-              <td><b>{s.artist}</b></td>
-              <td><i>{s.track}</i></td>
-              <td>{s.release}</td>
-              <td>{s.streams}</td>
-              <td>{writeNumberAsWords(s.streams)}</td>
-            </tr>
-          ))}
+        <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Track</th>
+            <th>Release</th>
+            <th>Streams</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.spotifyArrayFromParent
+            .filter(spotifyFilterFunction(props.searchTermFromParent))
+            .map((s, index) => (
+              <tr key={index}>
+                <td><b>{s.artist}</b></td>
+                <td><i>{s.track}</i></td>
+                <td>{s.release}</td>
+                <td>{s.streams}</td>
+                <td>{writeNumberAsWords(s.streams)}</td>
+              </tr>
+            ))}
+        </tbody>
       </table>
 
     </>
