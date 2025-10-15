@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import our data from the Javascript file.
 // JSON object representing Spotify streams to August 2023
-import { spotify2024 } from "./spotify2024";
+import { spotify2024 } from "./spotify2024.js";
 import spotifyIcon from "./spotifyIcon.png"
 
 // Writing our own functions for use in our app
